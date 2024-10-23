@@ -1,0 +1,12 @@
+--use this query to find text in stored procedures, functions and views
+
+SELECT DISTINCT
+       o.name AS Object_Name,
+       o.type_desc,
+	   o.type
+	   
+FROM sys.sql_modules m
+       INNER JOIN
+       sys.objects o
+         ON m.object_id = o.object_id
+WHERE m.definition Like '%sample%' --change this to be whatever text you want to search by

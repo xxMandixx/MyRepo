@@ -1,0 +1,11 @@
+-- in this example, we have an existing table that we want to add ON DELETE CASCADE to
+-- first we need to drop the existing constraint, then recreate with new values
+
+ALTER TABLE xxx  --your table name here
+DROP CONSTRAINT FK_xxx --your constraint name here
+
+ALTER TABLE xxx --same table name
+ADD CONSTRAINT FK_xxx --update here as well
+	FOREIGN KEY (xx) --fill in your FK 
+	REFERENCES other_table_name(other_table_fk) --update
+	ON DELETE CASCADE
